@@ -1,9 +1,11 @@
 package fr.univlille.redspring.parser.mfc.pojo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-public class Objective {
+@AllArgsConstructor
+public class Objectif {
 
 	private final String id;
 	

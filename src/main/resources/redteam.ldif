@@ -66,6 +66,16 @@ sn: Kernouf
 uid: kernouf
 userPassword: {bcrypt}$2y$10$rJE.on9gj8tqgEI7eSyikewlBbjnOraC91VlsNL6Vyb/DwiuajXfm
 
+dn: uid=prof,ou=people,dc=redteam,dc=fr
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Hehe boii
+sn: Boii
+uid: prof
+userPassword: {bcrypt}$2y$10$rJE.on9gj8tqgEI7eSyikewlBbjnOraC91VlsNL6Vyb/DwiuajXfm
+
 dn: cn=developers,ou=groups,dc=redteam,dc=fr
 objectclass: top
 objectclass: groupOfUniqueNames

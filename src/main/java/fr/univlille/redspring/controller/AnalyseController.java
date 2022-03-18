@@ -23,19 +23,14 @@ public class AnalyseController {
 
 	@Autowired
 	private AnalyseService analyse;
-	
-	/*
-	@GetMapping
-	public ResponseEntity<Object> analyse(@AuthenticationPrincipal UserDetails user){
-		//analyse.analyseProject();
-		return new ResponseEntity<>("tagada",HttpStatus.OK);
-	}*/
-	
+
 	@GetMapping("{id}")
-	public ResponseEntity<Object> analyse(@PathVariable Integer id, @AuthenticationPrincipal UserDetails user){
+	public ResponseEntity<Object> analyse(@PathVariable Integer id, @AuthenticationPrincipal UserDetails user) {
 		Optional<List<String>> resultat = analyse.analyseProject(id);
-		if(resultat.isEmpty()) return new ResponseEntity<>(null,HttpStatus.OK);
-		else return new ResponseEntity<>(resultat.get(),HttpStatus.OK);
+		if (resultat.isEmpty())
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		else
+			return new ResponseEntity<>(resultat.get(), HttpStatus.OK);
 	}
-	
+
 }

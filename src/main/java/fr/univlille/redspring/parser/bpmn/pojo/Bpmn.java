@@ -9,6 +9,10 @@ public class Bpmn {
 
 	private List<Processus> processus;
 
+	private List<Processus> processusPrincipaux;
+
+	private List<Acteur> acteurs;
+	
 	private List<Flux> flux;
 
 }

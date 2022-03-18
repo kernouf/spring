@@ -72,13 +72,11 @@ public class ProjetController {
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 
-	@PostMapping(value = "{id}/fichier", consumes = { "application/json", "application/octet-stream" })
+	@PostMapping(value = "{id}/fichier", consumes = { "*" })
 	public ResponseEntity<Object> addFile(@PathVariable Integer id, @PathParam(value = "name") String name,
 			@RequestBody byte[] données) throws SerialException, SQLException, IOException {
-		System.out.println(données.toString());
 		projetService.newFile(id, name, données);
-
-		return new ResponseEntity<>("Le fichier " + name + " à bien été ajouté", HttpStatus.CREATED);
+		return new ResponseEntity<>(données, HttpStatus.CREATED);
 	}
 
 	@GetMapping("{id}/fichier")

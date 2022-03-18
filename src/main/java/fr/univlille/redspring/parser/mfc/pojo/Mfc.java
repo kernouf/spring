@@ -1,5 +1,6 @@
 package fr.univlille.redspring.parser.mfc.pojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
@@ -7,14 +8,18 @@ import lombok.Data;
 @Data
 public class Mfc {
 
-	private Integer id;
+	public Mfc() {
+		this.acteurs = new ArrayList<>();
+		this.fluxs = new ArrayList<>();
+		this.objectives = new ArrayList<>();
+	}
+
+	private String name;
 
 	private List<Acteur> acteurs;
-	
-	private String name;
-	
+
 	private List<Flux> fluxs;
-	
-	private List<Objective> objectives;
-	
+
+	private List<Objectif> objectives;
+
 }

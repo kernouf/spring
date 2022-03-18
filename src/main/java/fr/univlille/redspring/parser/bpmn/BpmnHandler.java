@@ -14,9 +14,11 @@ public class BpmnHandler extends DefaultHandler {
 
 	private Bpmn result;
 
-	private List<Processus> process;
 	private List<Flux> flows;
 	private List<Acteur> acteurs;
+
+	private List<Processus> processus;
+	private List<Processus> processusPrincipaux;
 
 	private Processus currentProcess;
 
@@ -26,7 +28,9 @@ public class BpmnHandler extends DefaultHandler {
 
 	@Override
 	public void startDocument() {
-		process = new ArrayList<>();
+		result = new Bpmn();
+		processus = new ArrayList<>();
+		processusPrincipaux = new ArrayList<>();
 		flows = new ArrayList<>();
 		acteurs = new ArrayList<>();
 	}
@@ -48,7 +52,11 @@ public class BpmnHandler extends DefaultHandler {
 
 		if (qName.equalsIgnoreCase("bpmn:process")) {
 			this.currentProcess = new Processus(attributes.getValue("id"));
-			this.process.add(currentProcess);
+			processus.add(currentProcess);
+		}
+
+		if (qName.contains("Task") || qName.contains("task")) {
+			this.currentProcess.isPrincipal(true);
 		}
 
 		if (qName.equalsIgnoreCase("bpmn:intermediateCatchEvent")) {
@@ -66,6 +74,9 @@ public class BpmnHandler extends DefaultHandler {
 	public void endElement(String uri, String localName, String qName) {
 
 		if (qName.equalsIgnoreCase("bpmn:process")) {
+			if (this.currentProcess.isPrincipal())
+				processusPrincipaux.add(currentProcess);
+
 			flows.forEach(currentProcess::bindFlux);
 
 			for (Acteur acteur : acteurs) {
@@ -80,8 +91,9 @@ public class BpmnHandler extends DefaultHandler {
 
 	@Override
 	public void endDocument() {
-		result = new Bpmn();
 		result.setFlux(flows);
-		result.setProcessus(process);
+		result.setActeurs(acteurs);
+		result.setProcessus(processus);
+		result.setProcessusPrincipaux(processusPrincipaux);
 	}
 }

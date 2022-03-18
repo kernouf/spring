@@ -30,7 +30,7 @@ public class TestWebApplication implements ApplicationRunner {
 		Utilisateur Sabrina = new Utilisateur("kernouf");
 		Utilisateur Anis = new Utilisateur("sahed");
 
-		Projet principal = new Projet("Story-map Analyse", Sabrina);
+		Projet principal = new Projet("Projet de test", Sabrina);
 
 		userRepo.save(Sylvain);
 		userRepo.save(Sabrina);

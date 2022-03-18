@@ -12,6 +12,8 @@ public class Processus {
 
 	private Acteur acteur;
 
+	private boolean principal;
+
 	private List<CatchEvent> catchEvents = new ArrayList<>();
 
 	private List<ThrowEvent> throwEvents = new ArrayList<>();
@@ -30,6 +32,10 @@ public class Processus {
 				evenement.setFlux(messageFlow);
 			}
 		}
+	}
+
+	public void isPrincipal(boolean principal) {
+		this.principal = principal;
 	}
 
 }
