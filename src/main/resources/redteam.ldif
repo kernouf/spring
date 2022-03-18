@@ -1,0 +1,86 @@
+dn: dc=redteam,dc=fr
+objectclass: top
+objectclass: domain
+objectclass: extensibleObject
+dc: redteam
+
+dn: ou=groups,dc=redteam,dc=fr
+objectclass: top
+objectclass: organizationalUnit
+ou: groups
+
+dn: ou=people,dc=redteam,dc=fr
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+
+dn: uid=camus,ou=people,dc=redteam,dc=fr
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Sylvain Camus
+sn: Camus
+uid: camus
+userPassword: {bcrypt}$2y$10$rJE.on9gj8tqgEI7eSyikewlBbjnOraC91VlsNL6Vyb/DwiuajXfm
+
+dn: uid=bouzidia,ou=people,dc=redteam,dc=fr
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Milissa Bouzidia
+sn: Bouzidia
+uid: bouzidia
+userPassword: {bcrypt}$2y$10$rJE.on9gj8tqgEI7eSyikewlBbjnOraC91VlsNL6Vyb/DwiuajXfm
+
+dn: uid=chaouche,ou=people,dc=redteam,dc=fr
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Alissia Chaouche
+sn: Chaouche
+uid: chaouche
+userPassword: {bcrypt}$2y$10$rJE.on9gj8tqgEI7eSyikewlBbjnOraC91VlsNL6Vyb/DwiuajXfm
+
+
+dn: uid=sahed,ou=people,dc=redteam,dc=fr
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Anis Sahed
+sn: Sahed
+uid: sahed
+userPassword: {bcrypt}$2y$10$rJE.on9gj8tqgEI7eSyikewlBbjnOraC91VlsNL6Vyb/DwiuajXfm
+
+
+dn: uid=kernouf,ou=people,dc=redteam,dc=fr
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Sabrina Kernouf
+sn: Kernouf
+uid: kernouf
+userPassword: {bcrypt}$2y$10$rJE.on9gj8tqgEI7eSyikewlBbjnOraC91VlsNL6Vyb/DwiuajXfm
+
+dn: cn=developers,ou=groups,dc=redteam,dc=fr
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: developers
+ou: developer
+uniqueMember: uid=kernouf,ou=people,dc=redteam,dc=fr
+uniqueMember: uid=camus,ou=people,dc=redteam,dc=fr
+uniqueMember: uid=bouzidia,ou=people,dc=redteam,dc=fr
+uniqueMember: uid=kernouf,ou=people,dc=redteam,dc=fr
+uniqueMember: uid=chaouche,ou=people,dc=redteam,dc=fr
+uniqueMember: uid=sahed,ou=people,dc=redteam,dc=fr
+
+dn: cn=managers,ou=groups,dc=redteam,dc=fr
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: managers
+ou: manager
+uniqueMember: uid=camus,ou=people,dc=redteam,dc=fr
